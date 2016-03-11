@@ -1,0 +1,36 @@
+name: CoolServer 
+
+spring:
+  output:
+    ansi:
+      enabled: detect
+
+my:
+  hardware:
+    type: IBM
+    disk-type: FIBER
+    
+  servers:
+       - dev.bar.com
+       - foo.bar.com        
+       
+  mappings:
+    port: 90000
+    servername: ${name}
+    
+
+---      
+spring:
+  profiles: prod
+my:
+   hardware:
+      type : DELL
+      diskType: SSD       
+         
+---    
+spring:
+  profiles: dev
+my:
+   hardware:
+      type : HP
+      diskType: slow
